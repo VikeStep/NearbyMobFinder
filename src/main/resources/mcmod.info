@@ -1,0 +1,21 @@
+[
+{
+  "modid": "NearbyMobFinder",
+  "name": "Nearby Mob Finder",
+  "description": "Tells you where the nearby mobs are when you can't sleep via chat.",
+  "version": "1.0",
+  "mcversion": "1.7.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "VikeStep"
+  ],
+  "credits": "Pahimar for his Let's Mod Series, Lunatrius for helping with the code and bugs",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
