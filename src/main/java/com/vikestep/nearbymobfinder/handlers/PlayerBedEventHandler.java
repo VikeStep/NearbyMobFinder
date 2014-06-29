@@ -1,7 +1,6 @@
 package com.vikestep.nearbymobfinder.handlers;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
@@ -12,10 +11,6 @@ import java.util.List;
 
 public class PlayerBedEventHandler
 {
-    private static boolean isDelaying = false;
-    private static boolean delayState = false;
-    private static boolean messageSendable = false;
-
     @SubscribeEvent
     public void onPlayerSleepInBedEvent (PlayerSleepInBedEvent event)
     {
