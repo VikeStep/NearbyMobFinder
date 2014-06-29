@@ -9,9 +9,7 @@ public class CommonProxy implements IProxy
 {
     public void registerEventHandlers()
     {
-        TickHandler thandler = new TickHandler();
-        FMLCommonHandler.instance().bus().register(thandler);
+        FMLCommonHandler.instance().bus().register(new TickHandler());
         MinecraftForge.EVENT_BUS.register(new PlayerBedEventHandler());
-        //MinecraftForge.EVENT_BUS.register(thandler);
     }
 }
