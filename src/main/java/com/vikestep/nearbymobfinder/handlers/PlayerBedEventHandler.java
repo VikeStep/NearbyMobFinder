@@ -20,8 +20,8 @@ public class PlayerBedEventHandler
 
         double d0 = 8.0D;
         double d1 = 5.0D;
-        List<EntityMob> list = playerAttemptingToSleep.worldObj.getEntitiesWithinAABB(EntityMob.class, AxisAlignedBB.getAABBPool().getAABB((double)bedX - d0, (double)bedY - d1, (double)bedZ - d0, (double)bedX + d0, (double)bedY + d1, (double)bedZ + d0));
-        if (!list.isEmpty() && !playerAttemptingToSleep.worldObj.isDaytime())
+        List<EntityMob> list = playerAttemptingToSleep.worldObj.getEntitiesWithinAABB(EntityMob.class, AxisAlignedBB.getBoundingBox((double)bedX - d0, (double)bedY - d1, (double)bedZ - d0, (double)bedX + d0, (double)bedY + d1, (double)bedZ + d0));
+        if (!list.isEmpty() && !playerAttemptingToSleep.worldObj.isDaytime() && !(Math.abs(playerAttemptingToSleep.posX - (double)bedX) > 3.0D || Math.abs(playerAttemptingToSleep.posY - (double)bedY) > 2.0D || Math.abs(playerAttemptingToSleep.posZ - (double)bedZ) > 3.0D))
         {
             TickHandler.playerAttemptingToSleep = playerAttemptingToSleep;
             TickHandler.nearbyMobList = list;
