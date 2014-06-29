@@ -2,9 +2,11 @@ package com.vikestep.nearbymobfinder;
 
 import com.vikestep.nearbymobfinder.proxy.IProxy;
 import com.vikestep.nearbymobfinder.reference.Reference;
+import com.vikestep.nearbymobfinder.reference.Settings;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.common.config.Configuration;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 public class NearbyMobFinder
@@ -19,5 +21,10 @@ public class NearbyMobFinder
     public void preInit(FMLPreInitializationEvent event)
     {
         proxy.registerEventHandlers();
+
+        Settings.config = new Configuration(event.getSuggestedConfigurationFile());
+        Settings.showMobsAtAnyTimeOfDay = Settings.config.get("Client-side", "showMobsAllTime", false).getBoolean(false);
+        if(Settings.config.hasChanged())
+            Settings.config.save();
     }
 }

@@ -1,11 +1,11 @@
 package com.vikestep.nearbymobfinder.handlers;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
-
 import java.util.List;
 
 public class TickHandler
@@ -16,7 +16,9 @@ public class TickHandler
     @SubscribeEvent
     public void postChatUpdate(ClientTickEvent event)
     {
-        if(nearbyMobList != null)
+        if (event.phase != TickEvent.Phase.END)
+            return;
+        if (nearbyMobList != null)
         {
             int size = nearbyMobList.size();
             for (int i = 0; i < size; i++)
