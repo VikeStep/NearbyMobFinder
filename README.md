@@ -10,3 +10,5 @@ Future Planned Features
 -----------------------
 - Ability to find nearby mobs at any time of day (disabled by default in config)
 - A better way of showing nearby mobs
+
+![Screenshot](http://i.imgur.com/tcjjeFy.png)
