@@ -1,5 +1,10 @@
 package com.vikestep.nearbymobfinder.reference;
 
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.player.EntityPlayer;
+
+import java.util.List;
+
 public class Reference
 {
     public static final String MOD_ID = "NearbyMobFinder";
