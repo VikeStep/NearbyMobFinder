@@ -1,6 +1,8 @@
 package com.vikestep.nearbymobfinder;
 
+import com.vikestep.nearbymobfinder.configuration.ConfigurationHandler;
 import com.vikestep.nearbymobfinder.proxy.IProxy;
+import com.vikestep.nearbymobfinder.reference.Keybindings;
 import com.vikestep.nearbymobfinder.reference.Reference;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -18,6 +20,8 @@ public class NearbyMobFinder
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        ConfigurationHandler.loadConfigs(event.getSuggestedConfigurationFile());
         proxy.registerEventHandlers();
+        Keybindings.registerKeybindings();
     }
 }

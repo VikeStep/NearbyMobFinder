@@ -17,12 +17,12 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.7.10-1.0.1"
+version = "1.7.10-1.1.0"
 group= "com.vikestep.nearbymobfinder" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "NearbyMobFinder"
 
 minecraft {
-    version = "1.7.10-10.13.0.1152"
+    version = "1.7.10-10.13.0.1156"
     assetDir = "eclipse/assets"
 }
 
