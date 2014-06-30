@@ -30,7 +30,7 @@ If you want to compile the latest (as it might not be in the releases)
 2. Open cmd in the directory containing src, gradle, LICENSE etc.
 3. run gradlew setupDecompWorkspace
 4. run gradlew build
-5. Your file will be in gradle/build/libs
+5. Your file will be in build/libs
 
 Modpacks
 -----------------------
