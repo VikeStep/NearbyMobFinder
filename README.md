@@ -13,8 +13,7 @@ There is also a config option (disabled by default) to let you search for nearby
 Future Planned Features
 -----------------------
 - A better way of showing nearby mobs
-- Ability to allow sleeping when mobs are nearby
-- Ability to allow sleeping when you are not close enough to bed (i.e. as long as it is right clicked any distance away)
+- A config option to customise distance checked for nearby mobs
 
 Download
 ----------------------
