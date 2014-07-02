@@ -1,6 +1,8 @@
 NearbyMobFinder
 ===============
 
+Minecraft Forum Post: http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/2125500
+
 Current Features
 ---------------------
 This mod will tell you all the nearby mobs when you get the following message trying to sleep:
@@ -17,9 +19,9 @@ Future Planned Features
 
 Download
 ----------------------
-All downloads are in the releases section
+All downloads are now on CurseForge
 
-Link: https://github.com/VikeStep/NearbyMobFinder/releases
+Link: http://minecraft.curseforge.com/mc-mods/221985-nearby-mob-finder/files
 
 Compiling
 ----------------------
