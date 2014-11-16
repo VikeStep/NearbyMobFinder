@@ -1,6 +1,8 @@
 NearbyMobFinder
 ===============
 
+Minecraft Forum Post: http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/2125500
+
 Current Features
 ---------------------
 This mod will tell you all the nearby mobs when you get the following message trying to sleep:
@@ -13,14 +15,13 @@ There is also a config option (disabled by default) to let you search for nearby
 Future Planned Features
 -----------------------
 - A better way of showing nearby mobs
-- Ability to allow sleeping when mobs are nearby
-- Ability to allow sleeping when you are not close enough to bed (i.e. as long as it is right clicked any distance away)
+- A config option to customise distance checked for nearby mobs
 
 Download
 ----------------------
-All downloads are in the releases section
+All downloads are now on CurseForge
 
-Link: https://github.com/VikeStep/NearbyMobFinder/releases
+Link: http://minecraft.curseforge.com/mc-mods/221985-nearby-mob-finder/files
 
 Compiling
 ----------------------
@@ -30,7 +31,7 @@ If you want to compile the latest (as it might not be in the releases)
 2. Open cmd in the directory containing src, gradle, LICENSE etc.
 3. run gradlew setupDecompWorkspace
 4. run gradlew build
-5. Your file will be in gradle/build/libs
+5. Your file will be in build/libs
 
 Modpacks
 -----------------------
