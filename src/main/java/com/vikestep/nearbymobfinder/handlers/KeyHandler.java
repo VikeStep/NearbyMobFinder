@@ -21,10 +21,10 @@ public class KeyHandler
         {
             EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
             List<EntityMob> list = NearbyMobHelper.findNearbyMobs(player, player.posX, player.posY, player.posZ);
-            ChatComponentText warning = new ChatComponentText("Nearby Mobs:");
-            player.addChatComponentMessage(warning);
             if (Settings.enableNearbyMobCheckAllTime && list.size() != 0)
             {
+                ChatComponentText warning = new ChatComponentText("Nearby Mobs:");
+                player.addChatComponentMessage(warning);
                 for (int i = 0; i < list.size(); i++)
                 {
                     EntityMob mobFound = list.get(i);
@@ -35,6 +35,8 @@ public class KeyHandler
             }
             else if(Settings.enableNearbyMobCheckAllTime)
             {
+                ChatComponentText warning = new ChatComponentText("Nearby Mobs:");
+                player.addChatComponentMessage(warning);
                 ChatComponentText message = new ChatComponentText("No Mobs Found Nearby");
                 player.addChatComponentMessage(message);
             }
