@@ -21,7 +21,7 @@ public class TickHandler
             for (int i = 0; i < nearbyMobList.size(); i++)
             {
                 EntityMob mobFound = nearbyMobList.get(i);
-                String CHAT_MESSAGE = mobFound.getCommandSenderName() + " x: " + Math.floor(mobFound.posX) + ", z: " + Math.floor(mobFound.posZ) + " (y: " + Math.floor(mobFound.posZ) + ")";
+                String CHAT_MESSAGE = mobFound.getCommandSenderName() + " x: " + Math.floor(mobFound.posX) + ", z: " + Math.floor(mobFound.posZ) + " (y: " + Math.floor(mobFound.posY) + ")";
                 ChatComponentText component = new ChatComponentText(CHAT_MESSAGE);
                 playerRequesting.addChatComponentMessage(component);
             }

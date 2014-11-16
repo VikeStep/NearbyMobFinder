@@ -28,7 +28,7 @@ public class KeyHandler
                 for (int i = 0; i < list.size(); i++)
                 {
                     EntityMob mobFound = list.get(i);
-                    String CHAT_MESSAGE = mobFound.getCommandSenderName() + " x: " + Math.floor(mobFound.posX) + ", z: " + Math.floor(mobFound.posZ) + " (y: " + Math.floor(mobFound.posZ) + ")";
+                    String CHAT_MESSAGE = mobFound.getCommandSenderName() + " x: " + Math.floor(mobFound.posX) + ", z: " + Math.floor(mobFound.posZ) + " (y: " + Math.floor(mobFound.posY) + ")";
                     ChatComponentText mobLocation = new ChatComponentText(CHAT_MESSAGE);
                     player.addChatComponentMessage(mobLocation);
                 }
