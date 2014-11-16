@@ -8,6 +8,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentText;
 
 import java.util.List;
 
@@ -20,10 +21,22 @@ public class KeyHandler
         {
             EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
             List<EntityMob> list = NearbyMobHelper.findNearbyMobs(player, player.posX, player.posY, player.posZ);
-            if (Settings.enableNearbyMobCheckAllTime && !list.isEmpty())
+            ChatComponentText warning = new ChatComponentText("Nearby Mobs:");
+            player.addChatComponentMessage(warning);
+            if (Settings.enableNearbyMobCheckAllTime && list.size() != 0)
             {
-                TickHandler.playerRequesting = player;
-                TickHandler.nearbyMobList = list;
+                for (int i = 0; i < list.size(); i++)
+                {
+                    EntityMob mobFound = list.get(i);
+                    String CHAT_MESSAGE = mobFound.getCommandSenderName() + " x: " + Math.floor(mobFound.posX) + ", z: " + Math.floor(mobFound.posZ) + " (y: " + Math.floor(mobFound.posZ) + ")";
+                    ChatComponentText mobLocation = new ChatComponentText(CHAT_MESSAGE);
+                    player.addChatComponentMessage(mobLocation);
+                }
+            }
+            else if(Settings.enableNearbyMobCheckAllTime)
+            {
+                ChatComponentText message = new ChatComponentText("No Mobs Found Nearby");
+                player.addChatComponentMessage(message);
             }
         }
     }
