@@ -9,19 +9,17 @@ import java.util.List;
 
 public class NearbyMobHelper
 {
-    public static List<EntityMob> findNearbyMobsBed(EntityPlayer player, BlockPos pos)
+    //Returns a list of nearby mobs in a 16*16*10 (x*z*y) rectangular prism around a BlockPos pos
+    public static List<EntityMob> findNearbyMobs(EntityPlayer player, BlockPos pos)
     {
-        double d0 = 8.0D;
-        double d1 = 5.0D;
-        List<EntityMob> list = player.worldObj.getEntitiesWithinAABB(EntityMob.class, new AxisAlignedBB((double) pos.getX() - d0, (double) pos.getY() - d1, (double) pos.getZ() - d0, (double) pos.getX() + d0, (double) pos.getY() + d1, (double) pos.getZ() + d0));
-        return list;
+        return findNearbyMobs(player, pos.getX(), pos.getY(), pos.getZ());
     }
 
-    public static List<EntityMob> findNearbyMobsPlayer(EntityPlayer player, double x, double y, double z)
+    //Returns a list of nearby mobs in a 16*16*10 (x*z*y) rectangular prism around (x, y, z) coordinates
+    public static List<EntityMob> findNearbyMobs(EntityPlayer player, double x, double y, double z)
     {
         double d0 = 8.0D;
         double d1 = 5.0D;
-        List<EntityMob> list = player.worldObj.getEntitiesWithinAABB(EntityMob.class, new AxisAlignedBB((double) x - d0, (double) y - d1, (double) z - d0, (double) x + d0, (double) y + d1, (double) z + d0));
-        return list;
+        return player.worldObj.getEntitiesWithinAABB(EntityMob.class, new AxisAlignedBB(x - d0, y - d1, z - d0, x + d0, y + d1, z + d0));
     }
 }

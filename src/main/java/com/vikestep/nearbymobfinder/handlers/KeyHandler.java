@@ -20,25 +20,24 @@ public class KeyHandler
         if(Keybindings.findMobs.isPressed())
         {
             EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
-            List<EntityMob> list = NearbyMobHelper.findNearbyMobsPlayer(player, player.posX, player.posY, player.posZ);
-            if (Settings.enableNearbyMobCheckAllTime && list.size() != 0)
+            List<EntityMob> list = NearbyMobHelper.findNearbyMobs(player, player.posX, player.posY, player.posZ);
+            //If enabled in config
+            if (Settings.enableNearbyMobCheckAllTime)
             {
-                ChatComponentText warning = new ChatComponentText("Nearby Mobs:");
-                player.addChatComponentMessage(warning);
-                for (int i = 0; i < list.size(); i++)
+                ChatComponentText preMessage = new ChatComponentText("Nearby Mobs:");
+                player.addChatComponentMessage(preMessage);
+                if (list.size() != 0)
                 {
-                    EntityMob mobFound = list.get(i);
-                    String CHAT_MESSAGE = mobFound.getName() + " x: " + Math.floor(mobFound.posX) + ", z: " + Math.floor(mobFound.posZ) + " (y: " + Math.floor(mobFound.posY) + ")";
-                    ChatComponentText mobLocation = new ChatComponentText(CHAT_MESSAGE);
-                    player.addChatComponentMessage(mobLocation);
+                    for (EntityMob mobFound : list)
+                    {
+                        String MOB_LOCATION = mobFound.getName() + " x: " + Math.floor(mobFound.posX) + ", z: " + Math.floor(mobFound.posZ) + " (y: " + Math.floor(mobFound.posY) + ")";
+                        ChatComponentText mobLocation = new ChatComponentText(MOB_LOCATION);
+                        player.addChatComponentMessage(mobLocation);
+                    }
+                } else {
+                    ChatComponentText message = new ChatComponentText("No Mobs Found Nearby");
+                    player.addChatComponentMessage(message);
                 }
-            }
-            else if(Settings.enableNearbyMobCheckAllTime)
-            {
-                ChatComponentText warning = new ChatComponentText("Nearby Mobs:");
-                player.addChatComponentMessage(warning);
-                ChatComponentText message = new ChatComponentText("No Mobs Found Nearby");
-                player.addChatComponentMessage(message);
             }
         }
     }

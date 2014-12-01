@@ -13,17 +13,18 @@ public class TickHandler
     public static List<EntityMob> nearbyMobList = null;
     public static EntityPlayer playerRequesting = null;
 
+    //Subscribing to server tick since the PlayerSleepInBed event only fires on server side when connected to a server
     @SubscribeEvent
     public void onServerTick(TickEvent.ServerTickEvent event)
     {
+        //Null check in case although this should not occur
         if(nearbyMobList != null)
         {
-            for (int i = 0; i < nearbyMobList.size(); i++)
+            for (EntityMob mobFound : nearbyMobList)
             {
-                EntityMob mobFound = nearbyMobList.get(i);
-                String CHAT_MESSAGE = mobFound.getName() + " x: " + Math.floor(mobFound.posX) + ", z: " + Math.floor(mobFound.posZ) + " (y: " + Math.floor(mobFound.posY) + ")";
-                ChatComponentText component = new ChatComponentText(CHAT_MESSAGE);
-                playerRequesting.addChatComponentMessage(component);
+                String MOB_LOCATION = mobFound.getName() + " x: " + Math.floor(mobFound.posX) + ", z: " + Math.floor(mobFound.posZ) + " (y: " + Math.floor(mobFound.posY) + ")";
+                ChatComponentText mobLocation = new ChatComponentText(MOB_LOCATION);
+                playerRequesting.addChatComponentMessage(mobLocation);
             }
             nearbyMobList = null;
             playerRequesting = null;

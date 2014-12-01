@@ -25,7 +25,7 @@ public class ConfigurationHandler
         Settings.enableNearbyMobCheckAtBed = propEnableNearbyMobCheckAtBed.getBoolean(true);
 
         Property propEnableNearbyMobCheckAllTime = config.get(CATEGORY_GENERAL,"enableNearbyMobCheckAllTime", false);
-        propEnableNearbyMobCheckAllTime.comment = "Set to true to enable the use of a keybind to check for nearby mobs at all times";
+        propEnableNearbyMobCheckAllTime.comment = "Set to true to enable the use of a key binding to check for nearby mobs at all times";
         Settings.enableNearbyMobCheckAllTime = propEnableNearbyMobCheckAllTime.getBoolean(false);
 
         config.save();
