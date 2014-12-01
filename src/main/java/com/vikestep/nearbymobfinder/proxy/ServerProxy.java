@@ -2,8 +2,8 @@ package com.vikestep.nearbymobfinder.proxy;
 
 import com.vikestep.nearbymobfinder.handlers.PlayerBedEventHandler;
 import com.vikestep.nearbymobfinder.handlers.TickHandler;
-import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 
 public class ServerProxy extends CommonProxy
 {

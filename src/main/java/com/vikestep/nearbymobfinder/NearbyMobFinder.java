@@ -3,9 +3,9 @@ package com.vikestep.nearbymobfinder;
 import com.vikestep.nearbymobfinder.configuration.ConfigurationHandler;
 import com.vikestep.nearbymobfinder.proxy.IProxy;
 import com.vikestep.nearbymobfinder.reference.Reference;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 public class NearbyMobFinder

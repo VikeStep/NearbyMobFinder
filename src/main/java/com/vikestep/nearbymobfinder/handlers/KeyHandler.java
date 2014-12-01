@@ -3,12 +3,12 @@ package com.vikestep.nearbymobfinder.handlers;
 import com.vikestep.nearbymobfinder.configuration.Settings;
 import com.vikestep.nearbymobfinder.reference.Keybindings;
 import com.vikestep.nearbymobfinder.util.NearbyMobHelper;
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.InputEvent;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
+import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class KeyHandler
         if(Keybindings.findMobs.isPressed())
         {
             EntityPlayer player = FMLClientHandler.instance().getClientPlayerEntity();
-            List<EntityMob> list = NearbyMobHelper.findNearbyMobs(player, player.posX, player.posY, player.posZ);
+            List<EntityMob> list = NearbyMobHelper.findNearbyMobsPlayer(player, player.posX, player.posY, player.posZ);
             if (Settings.enableNearbyMobCheckAllTime && list.size() != 0)
             {
                 ChatComponentText warning = new ChatComponentText("Nearby Mobs:");
@@ -28,7 +28,7 @@ public class KeyHandler
                 for (int i = 0; i < list.size(); i++)
                 {
                     EntityMob mobFound = list.get(i);
-                    String CHAT_MESSAGE = mobFound.getCommandSenderName() + " x: " + Math.floor(mobFound.posX) + ", z: " + Math.floor(mobFound.posZ) + " (y: " + Math.floor(mobFound.posY) + ")";
+                    String CHAT_MESSAGE = mobFound.getName() + " x: " + Math.floor(mobFound.posX) + ", z: " + Math.floor(mobFound.posZ) + " (y: " + Math.floor(mobFound.posY) + ")";
                     ChatComponentText mobLocation = new ChatComponentText(CHAT_MESSAGE);
                     player.addChatComponentMessage(mobLocation);
                 }

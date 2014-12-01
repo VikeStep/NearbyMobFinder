@@ -1,10 +1,10 @@
 package com.vikestep.nearbymobfinder.handlers;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class TickHandler
             for (int i = 0; i < nearbyMobList.size(); i++)
             {
                 EntityMob mobFound = nearbyMobList.get(i);
-                String CHAT_MESSAGE = mobFound.getCommandSenderName() + " x: " + Math.floor(mobFound.posX) + ", z: " + Math.floor(mobFound.posZ) + " (y: " + Math.floor(mobFound.posY) + ")";
+                String CHAT_MESSAGE = mobFound.getName() + " x: " + Math.floor(mobFound.posX) + ", z: " + Math.floor(mobFound.posZ) + " (y: " + Math.floor(mobFound.posY) + ")";
                 ChatComponentText component = new ChatComponentText(CHAT_MESSAGE);
                 playerRequesting.addChatComponentMessage(component);
             }
