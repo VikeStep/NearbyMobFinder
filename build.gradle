@@ -22,12 +22,12 @@ group= "com.vikestep.nearbymobfinder" // http://maven.apache.org/guides/mini/gui
 archivesBaseName = "NearbyMobFinder"
 
 minecraft {
-    version = "1.7.10-10.13.2.1230"
-    assetDir = "eclipse/assets"
+    version = "1.7.10-10.13.2.1240"
+    runDir = "run"
 }
-
+		
 dependencies {
-    // you may put jars on which you    depend on in ./libs
+    // you may put jars on which you depend on in ./libs
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
     //compile "some.group:artifact:version"
