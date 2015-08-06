@@ -1,6 +1,8 @@
 package io.github.vikestep.nearbymobfinder;
 
 import net.minecraft.launchwrapper.IClassTransformer;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.Logger;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Type;
@@ -37,7 +39,7 @@ public class NearbyMobFinderTransformer implements IClassTransformer
 
     private byte[] transformEntityPlayer(byte[] bytes)
     {
-        System.out.println("Found the EntityPlayer class");
+        logToConsole("Found the EntityPlayer class", Level.INFO);
 
         ClassNode classNode = new ClassNode();
         ClassReader classReader = new ClassReader(bytes);
@@ -47,7 +49,7 @@ public class NearbyMobFinderTransformer implements IClassTransformer
         {
             if (method.name.equals(tryToSleepMethod) && method.desc.equals(tryToSleepDesc))
             {
-                System.out.println("Found the tryToSleep method");
+                logToConsole("Found the tryToSleep method", Level.INFO);
                 AbstractInsnNode nodeToFind = null;
                 for (AbstractInsnNode insn : method.instructions.toArray())
                 {
@@ -59,7 +61,7 @@ public class NearbyMobFinderTransformer implements IClassTransformer
                 }
                 if (nodeToFind == null)
                 {
-                    System.out.println("Unable to find isEmpty node");
+                    logToConsole("Unable to find isEmpty node", Level.WARN);
                     break;
                 }
                 InsnList toInject = getInsnListToInsert();
@@ -192,5 +194,10 @@ public class NearbyMobFinderTransformer implements IClassTransformer
     public static String getStringToChat(String name, double x, double y, double z)
     {
         return name + " x: " + (int) x + ", z: " + (int) z + " (y: " + (int) y + ")";
+    }
+
+    public static void logToConsole(String output, Level level)
+    {
+        NearbyMobFinderTweaker.LOGGER.log(level, "[Nearby Mob Finder] " + output);
     }
 }

@@ -7,7 +7,7 @@ repositories {
 
 apply plugin: 'java'
 
-version = "1.0.0"
+version = "1.0.0-15w32a"
 group = "io.github.vikestep.nearbymobfinder"
 archivesBaseName = "NearbyMobFinder"
 

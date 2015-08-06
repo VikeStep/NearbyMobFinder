@@ -12,7 +12,9 @@ Currently does this by putting the co-ordinates of the mobs in the minecraft cha
 
 Download
 ----------------------
-Downloads are available in the Releases folder on github
+Downloads are available in the Releases folder on github.
+
+[The latest can be found here](https://github.com/VikeStep/NearbyMobFinder/releases/tag/1.0.0-15w32a)
 
 Compiling
 ----------------------
