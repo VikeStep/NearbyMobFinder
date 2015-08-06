@@ -1,63 +1,31 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        maven {
-            name = "forge"
-            url = "http://files.minecraftforge.net/maven"
-        }
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
+repositories {
+    maven {
+        url "https://libraries.minecraft.net/"
     }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
-    }
+    mavenCentral()
 }
 
-apply plugin: 'forge'
+apply plugin: 'java'
 
-version = "1.7.10-1.1.1"
-group= "com.vikestep.nearbymobfinder" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = "1.0.0"
+group = "io.github.vikestep.nearbymobfinder"
 archivesBaseName = "NearbyMobFinder"
 
-minecraft {
-    version = "1.7.10-10.13.2.1240"
-    runDir = "run"
-}
-		
+sourceCompatibility = 1.6
+
 dependencies {
-    // you may put jars on which you depend on in ./libs
-    // or you may define them like so..
-    //compile "some.group:artifact:version:classifier"
-    //compile "some.group:artifact:version"
-      
-    // real examples
-    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
+    compile 'net.minecraft:launchwrapper:1.12'
+    compile 'org.ow2.asm:asm-debug-all:5.0.3'
+    compile 'org.lwjgl.lwjgl:lwjgl:2.9.1'
+    compile 'org.apache.logging.log4j:log4j-core:2.0-beta9'
+    compile 'org.apache.logging.log4j:log4j-api:2.0-beta9'
+    compile 'com.google.guava:guava:15.0'
 
-    // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
+    compile files('build/15w32a.jar')
 }
 
-processResources
-{
-    // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
-    // replace stuff in mcmod.info, nothing else
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-                
-        // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-        
-    // copy everything else, thats not the mcmod.info
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
+jar {
+	manifest {
+		attributes("TweakClass":"io.github.vikestep.nearbymobfinder.NearbyMobFinderTweaker")
+	}
 }
